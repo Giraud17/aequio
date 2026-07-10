@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AEQUIO — Conseil Stratégique & Financier · La Rochelle</title>
+<meta name="description" content="AEQUIO accompagne les dirigeants de TPE/PME à La Rochelle et ses environs. Sparring partner stratégique, DAF à temps partagé, optimisation des process et digitalisation.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CSS VARIABLES — CHARTE AEQUIO
+   ============================================================ */
+:root {
+  --peach-light: #E8A598;
+  --peach-main: #C4706A;
+  --peach-deep: #8A4A44;
+  --blue-light: #81ADB5;
+  --blue-main: #4A6E7A;
+  --blue-dark: #2E4D58;
+  --bg: #F9F6FB;
+  --bg-warm: #FDF8F6;
+  --text: #2A2535;
+  --text-light: #7A7285;
+  --white: #FFFFFF;
+  --border: rgba(196,112,106,0.15);
+  --shadow: 0 8px 40px rgba(42,37,53,0.08);
+  --shadow-lg: 0 20px 80px rgba(42,37,53,0.12);
+  --radius: 20px;
+  --radius-sm: 12px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 60px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(249,246,251,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 4px 24px rgba(42,37,53,0.08); }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--peach-main);
+  letter-spacing: 6px;
+}
+.nav-logo-line {
+  width: 28px;
+  height: 1px;
+  background: var(--peach-light);
+}
+.nav-logo-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--peach-main);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--peach-main); }
+
+.nav-cta {
+  background: var(--peach-main);
+  color: white !important;
+  padding: 10px 24px;
+  border-radius: 40px;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.2s !important;
+}
+.nav-cta:hover { background: var(--peach-deep) !important; transform: translateY(-1px); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 120px 60px 80px;
+  gap: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(232,165,152,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(74,110,122,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--peach-main);
+  margin-bottom: 28px;
+}
+.hero-tag::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--peach-main);
+}
+
+.hero h1 {
+  font-size: clamp(44px, 5vw, 68px);
+  color: var(--text);
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--peach-main);
+}
+
+.hero-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--peach-main);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  transition: all 0.25s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--peach-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(196,112,106,0.35);
+}
+.btn-primary svg { transition: transform 0.2s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 300;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  color: var(--peach-main);
+  border-color: var(--peach-light);
+}
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.hero-trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-trust-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--peach-main);
+}
+.hero-trust-label {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-light);
+  text-align: center;
+  line-height: 1.3;
+}
+.hero-trust-sep {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-img-main {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/3;
+  position: relative;
+}
+.hero-img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-img-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: white;
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.badge-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--peach-main), var(--peach-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge-text strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text);
+}
+.badge-text span {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-light);
+}
+
+.hero-img-float {
+  position: absolute;
+  top: 130px;
+  right: 20px;
+  width: 170px;
+  height: 170px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.hero-img-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   SECTION GÉNÉRIQUE
+   ============================================================ */
+section { padding: 100px 60px; }
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--peach-main);
+  margin-bottom: 20px;
+}
+.section-tag::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--peach-main);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--peach-main); }
+.section-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+/* ============================================================
+   PROBLÈME / PROMESSE
+   ============================================================ */
+.promise {
+  background: var(--bg-warm);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.promise-left {}
+
+.promise-pains {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pain-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: white;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--peach-light);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.pain-item:hover {
+  border-color: var(--peach-main);
+  box-shadow: var(--shadow);
+}
+.pain-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.pain-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+}
+
+.promise-right {
+  background: linear-gradient(135deg, var(--blue-dark), var(--blue-main));
+  border-radius: var(--radius);
+  padding: 56px 48px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.promise-right::before {
+  content: '"';
+  position: absolute;
+  top: -20px; right: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 180px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+}
+
+.promise-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  font-style: italic;
+  color: white;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.promise-points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.promise-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+}
+.promise-point-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--peach-light);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   DÉMARCHE
+   ============================================================ */
+.approach {
+  background: white;
+}
+
+.approach-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.approach-visual {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: visible;
+}
+.approach-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/3;
+}
+.approach-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.approach-stat {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: var(--peach-main);
+  color: white;
+  border-radius: var(--radius-sm);
+  padding: 20px 28px;
+  box-shadow: var(--shadow);
+}
+.approach-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+}
+.approach-stat-label {
+  font-size: 12px;
+  font-weight: 300;
+  opacity: 0.85;
+}
+
+.approach-content {}
+
+.approach-philosophy {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 28px 32px;
+  border-left: 4px solid var(--peach-main);
+  margin: 32px 0;
+}
+.approach-philosophy p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.8;
+}
+.approach-philosophy strong {
+  color: var(--peach-main);
+  font-weight: 400;
+}
+
+.approach-deliverables {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.deliverable {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text);
+}
+.deliverable-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue-main);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ============================================================
+   MÉTHODE EN 4 TEMPS
+   ============================================================ */
+.method {
+  background: var(--bg);
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.method-card {
+  position: relative;
+  background: white;
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+}
+.method-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.method-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.method-card:nth-child(1)::before { background: var(--peach-light); }
+.method-card:nth-child(2)::before { background: var(--blue-light); }
+.method-card:nth-child(3)::before { background: var(--blue-main); }
+.method-card:nth-child(4)::before { background: var(--peach-main); }
+
+.method-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: rgba(42,37,53,0.05);
+  line-height: 1;
+  margin-bottom: -16px;
+}
+.method-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+.method-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.method-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   EXPÉRIENCE AEQUIO — FRISE
+   ============================================================ */
+.experience {
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-main) 100%);
+  color: white;
+}
+
+.experience .section-tag { color: var(--peach-light); }
+.experience .section-tag::before { background: var(--peach-light); }
+.experience .section-title { color: white; }
+.experience .section-sub { color: rgba(255,255,255,0.65); }
+
+.experience-steps {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 0;
+  margin-top: 64px;
+  position: relative;
+}
+
+.experience-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  z-index: 0;
+}
+
+.exp-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.exp-num {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 24px;
+  position: relative;
+  transition: transform 0.2s;
+}
+.exp-step:hover .exp-num { transform: scale(1.08); }
+
+.exp-step:nth-child(1) .exp-num { background: rgba(232,165,152,0.25); color: var(--peach-light); border: 1px solid rgba(232,165,152,0.4); }
+.exp-step:nth-child(2) .exp-num { background: rgba(129,173,181,0.25); color: var(--blue-light); border: 1px solid rgba(129,173,181,0.4); }
+.exp-step:nth-child(3) .exp-num { background: rgba(196,112,106,0.25); color: var(--peach-light); border: 1px solid rgba(196,112,106,0.4); }
+.exp-step:nth-child(4) .exp-num { background: rgba(74,110,122,0.35); color: white; border: 1px solid rgba(255,255,255,0.35); }
+
+.exp-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 10px;
+}
+.exp-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+.exp-badge {
+  display: inline-block;
+  margin-top: 12px;
+  background: rgba(232,165,152,0.2);
+  color: var(--peach-light);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   OFFRES
+   ============================================================ */
+.offers {
+  background: var(--bg-warm);
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+
+.offer-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.offer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.offer-header {
+  padding: 36px 32px 28px;
+  position: relative;
+}
+.offer-card:nth-child(1) .offer-header { background: linear-gradient(135deg, #FDF2F0, #FAE8E5); }
+.offer-card:nth-child(2) .offer-header { background: linear-gradient(135deg, #EEF5F7, #DFF0F4); }
+.offer-card:nth-child(3) .offer-header { background: linear-gradient(135deg, #E8F2F5, #D0E8EE); }
+
+.offer-num {
+  position: absolute;
+  top: 20px; right: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: rgba(42,37,53,0.06);
+}
+.offer-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+.offer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.offer-tag {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.offer-card:nth-child(1) .offer-tag { color: var(--peach-main); }
+.offer-card:nth-child(2) .offer-tag { color: var(--blue-main); }
+.offer-card:nth-child(3) .offer-tag { color: var(--blue-dark); }
+
+.offer-body {
+  padding: 28px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.offer-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.offer-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex: 1;
+}
+.offer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text);
+}
+.offer-item::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.offer-card:nth-child(1) .offer-item::before { background: var(--peach-main); }
+.offer-card:nth-child(2) .offer-item::before { background: var(--blue-main); }
+.offer-card:nth-child(3) .offer-item::before { background: var(--blue-dark); }
+
+.offer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  text-align: center;
+}
+.offer-card:nth-child(1) .offer-cta { background: var(--peach-main); color: white; }
+.offer-card:nth-child(1) .offer-cta:hover { background: var(--peach-deep); transform: translateY(-1px); }
+.offer-card:nth-child(2) .offer-cta { background: var(--blue-main); color: white; }
+.offer-card:nth-child(2) .offer-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+.offer-card:nth-child(3) .offer-cta { background: var(--blue-dark); color: white; }
+.offer-card:nth-child(3) .offer-cta:hover { background: var(--blue-main); transform: translateY(-1px); }
+
+/* ============================================================
+   TÉMOIGNAGES
+   ============================================================ */
+.testimonials {
+  background: white;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.testimonial-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 32px;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 16px; left: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--peach-light);
+  opacity: 0.4;
+  line-height: 1;
+}
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.7;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.testimonial-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--peach-light), var(--peach-main));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  font-family: 'Cormorant Garamond', serif;
+}
+.testimonial-name {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+}
+.testimonial-role {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-light);
+}
+
+.testimonials-placeholder {
+  text-align: center;
+  padding: 60px 40px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  border: 2px dashed var(--border);
+  color: var(--text-light);
+  font-size: 15px;
+  font-weight: 300;
+  display: none;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq {
+  background: var(--bg);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 56px;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-item {
+  background: white;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(42,37,53,0.05);
+}
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+.faq-question:hover { color: var(--peach-main); }
+.faq-question.active { color: var(--peach-main); }
+.faq-arrow {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  margin-top: 2px;
+}
+.faq-question.active .faq-arrow {
+  background: var(--peach-main);
+  border-color: var(--peach-main);
+  transform: rotate(180deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.8;
+  padding: 0 24px;
+}
+.faq-answer.open {
+  max-height: 300px;
+  padding: 0 24px 20px;
+}
+
+/* ============================================================
+   CONTACT FORM
+   ============================================================ */
+.contact {
+  background: linear-gradient(160deg, var(--bg-warm) 0%, white 100%);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 56px;
+}
+
+.contact-left {}
+.contact-left p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.contact-info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+}
+.contact-info-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.contact-form {
+  background: white;
+  border-radius: var(--radius);
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.form-group.full { grid-column: 1 / -1; }
+
+.form-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.form-label .required { color: var(--peach-main); margin-left: 2px; }
+
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  outline: none;
+  transition: all 0.2s;
+  width: 100%;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--peach-light);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(196,112,106,0.08);
+}
+.form-textarea { resize: vertical; min-height: 100px; }
+.form-select { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7285' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+.form-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px;
+  background: var(--peach-main);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.form-submit:hover {
+  background: var(--peach-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(196,112,106,0.35);
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px;
+}
+.form-success-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+.form-success h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.form-success p {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.7);
+  padding: 64px 60px 40px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 32px;
+}
+
+.footer-brand .nav-logo-text { color: var(--peach-light); }
+.footer-tagline {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+  margin-top: 16px;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 20px;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--peach-light); }
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+.social-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+.social-btn:hover {
+  border-color: var(--peach-light);
+  background: rgba(232,165,152,0.1);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.3);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-legal-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-legal-links a {
+  color: rgba(255,255,255,0.3);
+  transition: color 0.2s;
+}
+.footer-legal-links a:hover { color: var(--peach-light); }
+
+/* ============================================================
+   MENTIONS LÉGALES — MODAL
+   ============================================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(42,37,53,0.75);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: white;
+  border-radius: var(--radius);
+  padding: 48px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--text-light);
+  transition: all 0.2s;
+}
+.modal-close:hover { background: var(--bg); color: var(--text); }
+.modal-box h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+.modal-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text);
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+.modal-box p, .modal-box ul {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.modal-box ul { padding-left: 20px; }
+
+/* ============================================================
+   BACK-OFFICE PANEL
+   ============================================================ */
+.bo-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--text);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: var(--shadow);
+  opacity: 0.4;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.bo-btn:hover { opacity: 1; transform: scale(1.05); }
+
+.bo-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  align-items: stretch;
+}
+.bo-panel.open { display: flex; }
+.bo-overlay {
+  flex: 1;
+  background: rgba(42,37,53,0.5);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+.bo-sidebar {
+  width: 440px;
+  background: white;
+  overflow-y: auto;
+  box-shadow: -20px 0 60px rgba(42,37,53,0.15);
+  display: flex;
+  flex-direction: column;
+}
+.bo-header {
+  padding: 28px 32px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+.bo-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text);
+}
+.bo-close {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-light);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.bo-close:hover { background: var(--bg); }
+
+.bo-login {
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.bo-login p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-light);
+}
+.bo-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  background: var(--bg);
+  transition: all 0.2s;
+}
+.bo-input:focus { border-color: var(--peach-light); background: white; box-shadow: 0 0 0 3px rgba(196,112,106,0.08); }
+.bo-submit {
+  padding: 12px;
+  background: var(--peach-main);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.bo-submit:hover { background: var(--peach-deep); }
+.bo-error {
+  font-size: 13px;
+  color: var(--peach-deep);
+  display: none;
+}
+
+.bo-content {
+  display: none;
+  padding: 24px 32px;
+  flex-direction: column;
+  gap: 24px;
+}
+.bo-content.visible { display: flex; }
+
+.bo-section-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.bo-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bo-field label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-light);
+}
+.bo-field input,
+.bo-field textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  transition: all 0.2s;
+  resize: vertical;
+}
+.bo-field input:focus, .bo-field textarea:focus {
+  border-color: var(--peach-light);
+  background: white;
+}
+
+.bo-save-btn {
+  padding: 12px;
+  background: var(--blue-main);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.bo-save-btn:hover { background: var(--blue-dark); }
+.bo-saved-msg {
+  display: none;
+  font-size: 13px;
+  color: var(--blue-main);
+  text-align: center;
+}
+
+/* Testimonial editor */
+.bo-testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.bo-testimonial-item {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  nav { padding: 0 32px; }
+  .nav-links { gap: 24px; }
+  section { padding: 80px 32px; }
+  .hero { padding: 120px 32px 80px; gap: 40px; }
+  .method-grid { grid-template-columns: repeat(2,1fr); }
+  .experience-steps { grid-template-columns: repeat(2,1fr); gap: 40px; }
+  .experience-steps::before { display: none; }
+  .offers-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  section { padding: 64px 20px; }
+  .hero { grid-template-columns: 1fr; padding: 100px 20px 64px; }
+  .hero-visual { display: none; }
+  .promise { grid-template-columns: 1fr; }
+  .approach-inner { grid-template-columns: 1fr; }
+  .approach-visual { display: none; }
+  .method-grid { grid-template-columns: 1fr; }
+  .experience-steps { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+  .bo-sidebar { width: 100%; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <span class="nav-logo-text">AEQUIO</span>
+    <div class="nav-logo-line"></div>
+    <div class="nav-logo-dot"></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#approach">Notre démarche</a></li>
+    <li><a href="#offers">Nos offres</a></li>
+    <li><a href="#experience">L'expérience</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Prendre contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag animate-up">Conseil stratégique · La Rochelle</div>
+    <h1 class="animate-up delay-1">Votre <em>partenaire</em> de confiance pour piloter et faire croître votre entreprise</h1>
+    <p class="hero-sub animate-up delay-2">Dirigeant de TPE/PME, vous avez besoin d'un regard extérieur exigeant, d'outils qui tournent vraiment et d'un accompagnement qui vous aide à prendre des décisions éclairées.</p>
+    <div class="hero-actions animate-up delay-3">
+      <a href="#contact" class="btn-primary">
+        Échanger 30 min — offert
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#offers" class="btn-secondary">Découvrir les offres</a>
+    </div>
+    <div class="hero-trust animate-up delay-4">
+      <div class="hero-trust-item">
+        <span class="hero-trust-num">8</span>
+        <span class="hero-trust-label">ans DAF<br>groupe multi-sociétés</span>
+      </div>
+      <div class="hero-trust-sep"></div>
+      <div class="hero-trust-item">
+        <span class="hero-trust-num">30</span>
+        <span class="hero-trust-label">collaborateurs<br>accompagnés</span>
+      </div>
+      <div class="hero-trust-sep"></div>
+      <div class="hero-trust-item">
+        <span class="hero-trust-num">La Rochelle</span>
+        <span class="hero-trust-label">ancrage local<br>& ses environs</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual animate-up delay-2">
+    <div class="hero-img-main">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Tableau de bord financier et croissance" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <div class="hero-img-float">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80" alt="Équipe en collaboration" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROBLÈME / PROMESSE
+     ============================================================ -->
+<section class="promise" id="promise">
+  <div class="promise-left">
+    <div class="section-tag">Ce que vous vivez</div>
+    <h2 class="section-title">Vous avancez, mais parfois <em>dans le brouillard</em></h2>
+    <div class="promise-pains">
+      <div class="pain-item">
+        <span class="pain-icon">🔍</span>
+        <span class="pain-text">Vous manquez de visibilité financière au quotidien pour décider sereinement.</span>
+      </div>
+      <div class="pain-item">
+        <span class="pain-icon">⚙️</span>
+        <span class="pain-text">Vos process internes reposent encore trop sur les personnes, pas sur des systèmes robustes.</span>
+      </div>
+      <div class="pain-item">
+        <span class="pain-icon">📋</span>
+        <span class="pain-text">Votre comptable vous parle en chiffres, pas en décisions. Il vous manque un partenaire terrain.</span>
+      </div>
+      <div class="pain-item">
+        <span class="pain-icon">🚀</span>
+        <span class="pain-text">Votre trésorerie est tendue malgré un activité en hausse.</span>
+      </div>
+    </div>
+  </div>
+  <div class="promise-right">
+    <p class="promise-quote">AEQUIO, c'est le regard extérieur que vous n'avez pas en interne — et les outils concrets pour avancer.</p>
+    <div class="promise-points">
+      <div class="promise-point"><div class="promise-point-dot"></div><span>Une expertise DAF de terrain</span></div>
+      <div class="promise-point"><div class="promise-point-dot"></div><span>Des livrables clairs, documentés et accessibles à vos équipes</span></div>
+      <div class="promise-point"><div class="promise-point-dot"></div><span>Un accompagnement humain, ancré à La Rochelle</span></div>
+      <div class="promise-point"><div class="promise-point-dot"></div><span>Résultats mesurables dès les premières semaines</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DÉMARCHE
+     ============================================================ -->
+<section class="approach" id="approach">
+  <div class="section-tag">Notre démarche</div>
+  <h2 class="section-title">Clé en main. <em>Fait avec vous.</em> Pour vous.</h2>
+  <div class="approach-inner">
+    <div class="approach-visual">
+      <div class="approach-img">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Équipe heureuse et productive" loading="lazy">
+      </div>
+      <div class="approach-stat">
+        <div class="approach-stat-num">100%</div>
+        <div class="approach-stat-label">de livrables opérationnels<br>dans votre environnement</div>
+      </div>
+    </div>
+
+    <div class="approach-content">
+      <div class="approach-philosophy">
+        <p>Je ne fais pas à votre place — je construis <strong>avec vous et pour vous</strong>. Mon objectif : que vos équipes s'approprient pleinement les outils et les process dans la durée. Pas de boîte noire, pas de dépendance.</p>
+      </div>
+
+      <p style="font-size:15px; color:var(--text-light); line-height:1.8; margin-bottom:20px;">Ce que vous obtenez concrètement : non pas un rapport qui prend la poussière, mais <strong style="color:var(--text); font-weight:400;">un système qui tourne</strong> — automatisations actives, tableaux de bord en temps réel, process documentés, intégration IA & No-code — tout dans votre environnement existant.</p>
+
+      <div class="approach-deliverables">
+        <div class="deliverable"><div class="deliverable-dot"></div>Transformation digitale de vos process</div>
+        <div class="deliverable"><div class="deliverable-dot"></div>Tableaux de bord financiers live</div>
+        <div class="deliverable"><div class="deliverable-dot"></div>Gestion de votre trésorerie</div>
+        <div class="deliverable"><div class="deliverable-dot"></div>Workflows de validation</div>
+        <div class="deliverable"><div class="deliverable-dot"></div>Optimisation de vos charges</div>
+        <div class="deliverable"><div class="deliverable-dot"></div>Prévisionnels optimisés</div>
+        <div class="deliverable"><div class="deliverable-dot"></div>Livrables compréhensibles pour tous</div>
+        <div class="deliverable"><div class="deliverable-dot"></div>1 mois de support post-déploiement</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================
+     MÉTHODE EN 4 TEMPS
+     ============================================================ -->
+<section class="method" id="method">
+  <div class="section-tag">Comment ça marche</div>
+  <h2 class="section-title">Une approche <em>en 4 temps</em></h2>
+  <p class="section-sub">Une méthode claire, structurée, adaptée à votre réalité — pour ne rien laisser au hasard.</p>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-num">01</div>
+      <div class="method-icon">🔎</div>
+      <div class="method-title">Diagnostic</div>
+      <p class="method-desc">On part de votre situation réelle : vos chiffres, vos process, vos équipes. Sans jugement, avec rigueur. On identifie ensemble les leviers de croissance prioritaires.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-num">02</div>
+      <div class="method-icon">🗺️</div>
+      <div class="method-title">Stratégie</div>
+      <p class="method-desc">On co-construit un plan d'action concret et réaliste — aligné avec vos ressources, vos ambitions et votre rythme. Pas de recette générique.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-num">03</div>
+      <div class="method-icon">⚡</div>
+      <div class="method-title">Déploiement</div>
+      <p class="method-desc">On passe à l'action ensemble. Chaque livrable est construit dans votre environnement, documenté, et testé avec vos équipes pour garantir l'adoption.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-num">04</div>
+      <div class="method-icon">🌱</div>
+      <div class="method-title">Autonomie</div>
+      <p class="method-desc">Vos équipes sont formées, vos outils sont en place, votre organisation est autonome. L'accompagnement vise toujours la prise d'indépendance durable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPÉRIENCE AEQUIO — FRISE
+     ============================================================ -->
+<section class="experience" id="experience">
+  <div class="section-tag">Avant de démarrer</div>
+  <h2 class="section-title" style="color:white;">L'expérience <em style="color:var(--peach-light);">AEQUIO</em></h2>
+  <p class="section-sub">Un process simple, transparent, sans engagement avant votre accord.</p>
+
+  <div class="experience-steps">
+    <div class="exp-step">
+      <div class="exp-num">1</div>
+      <div class="exp-title">Prise de contact</div>
+      <p class="exp-desc">Un premier échange de 30 minutes, offert et sans engagement. On se découvre, vous posez vos questions.</p>
+      <span class="exp-badge">✓ 100% gratuit</span>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">2</div>
+      <div class="exp-title">Audit de votre situation</div>
+      <p class="exp-desc">On analyse ensemble votre organisation, vos chiffres et vos besoins pour identifier les vrais enjeux.</p>
+      <span class="exp-badge">⏱ Sous 5 jours</span>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">3</div>
+      <div class="exp-title">Proposition sur mesure</div>
+      <p class="exp-desc">Je vous présente une proposition claire, adaptée à votre situation — offre, périmètre, modalités.</p>
+      <span class="exp-badge">📄 Sur mesure</span>
+    </div>
+    <div class="exp-step">
+      <div class="exp-num">4</div>
+      <div class="exp-title">Démarrage</div>
+      <p class="exp-desc">Validation du plan d'action et lancement de l'accompagnement. Vous gardez la main à chaque étape.</p>
+      <span class="exp-badge">🚀 On y va !</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OFFRES
+     ============================================================ -->
+<section class="offers" id="offers">
+  <div class="section-tag">Nos offres</div>
+  <h2 class="section-title">Un accompagnement <em>sur mesure</em></h2>
+  <p class="section-sub">Trois offres pensées pour les dirigeants de TPE/PME qui veulent aller plus loin — sans perdre de temps.</p>
+
+  <div class="offers-grid" id="offersGrid">
+    <!-- Offre 1 -->
+    <div class="offer-card">
+      <div class="offer-header">
+        <div class="offer-num">01</div>
+        <div class="offer-icon">⚡</div>
+        <div class="offer-title">Diagnostic Flash</div>
+        <div class="offer-tag">Point de départ</div>
+      </div>
+      <div class="offer-body">
+        <p class="offer-desc">Un état des lieux précis de votre organisation financière et opérationnelle. En quelques jours, vous savez exactement où vous en êtes et ce qu'il faut prioriser.</p>
+        <div class="offer-items">
+          <div class="offer-item">Analyse de votre situation financière & trésorerie</div>
+          <div class="offer-item">Revue de vos process & organisation interne</div>
+          <div class="offer-item">Identification des risques et opportunités</div>
+          <div class="offer-item">Synthèse écrite avec plan d'action priorisé</div>
+          <div class="offer-item">Session de restitution & échanges</div>
+        </div>
+        <a href="#contact" class="offer-cta">Démarrer par le diagnostic →</a>
+      </div>
+    </div>
+
+    <!-- Offre 2 -->
+    <div class="offer-card">
+      <div class="offer-header">
+        <div class="offer-num">02</div>
+        <div class="offer-icon">⚙️</div>
+        <div class="offer-title">Process & Digitalisation</div>
+        <div class="offer-tag">Transformation opérationnelle</div>
+      </div>
+      <div class="offer-body">
+        <p class="offer-desc">Un système qui tourne vraiment — pas un rapport. On construit ensemble vos process, vos automatisations et vos outils digitaux, directement dans votre environnement.</p>
+        <div class="offer-items">
+          <div class="offer-item">Cartographie & optimisation des process internes</div>
+          <div class="offer-item">Automatisations No-code </div>
+          <div class="offer-item">Tableaux de bord financiers & de trésorerie en temps réel</div>
+          <div class="offer-item">Livrables documentés, lisibles par tous — y compris les nouveaux arrivants</div>
+          <div class="offer-item">1 mois de support post-déploiement inclus</div>
+        </div>
+        <a href="#contact" class="offer-cta">Transformer mon organisation →</a>
+      </div>
+    </div>
+
+    <!-- Offre 3 -->
+    <div class="offer-card">
+      <div class="offer-header">
+        <div class="offer-num">03</div>
+        <div class="offer-icon">📊</div>
+        <div class="offer-title">DAF à Temps Partagé</div>
+        <div class="offer-tag">Pilotage financier</div>
+      </div>
+      <div class="offer-body">
+        <p class="offer-desc">L'expertise d'un Directeur Administratif et Financier de terrain, sans le coût d'un temps plein. Je deviens votre bras droit financier pour piloter, décider et sécuriser.</p>
+        <div class="offer-items">
+          <div class="offer-item">Pilotage mensuel de la performance & trésorerie</div>
+          <div class="offer-item">Analyse des marges, coûts & rentabilité</div>
+          <div class="offer-item">Aide à la décision & scenarios financiers</div>
+          <div class="offer-item">Interface avec votre comptable & banque</div>
+          <div class="offer-item">Présence régulière en entreprise</div>
+        </div>
+        <a href="#contact" class="offer-cta">Discuter de mes besoins →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TÉMOIGNAGES
+     ============================================================ -->
+<section class="testimonials" id="testimonials" style="display:none">
+  <div class="section-tag">Ils nous font confiance</div>
+  <h2 class="section-title">Ce que nos clients <em>disent de nous</em></h2>
+
+  <div class="testimonials-grid" id="testimonialsGrid">
+    <!-- Les témoignages sont gérés via le back-office -->
+    <div class="testimonial-card">
+      <p class="testimonial-text" id="t1-text">Laetitia a transformé notre façon de piloter l'entreprise. Pour la première fois, j'ai de la visibilité réelle sur mes marges — et ça change tout dans mes décisions au quotidien.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" id="t1-initial">T</div>
+        <div>
+          <div class="testimonial-name" id="t1-name">Témoignage à venir</div>
+          <div class="testimonial-role" id="t1-role">Dirigeant, secteur à préciser</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text" id="t2-text">En 3 mois, nos process ont été entièrement restructurés. L'équipe s'est approprié les nouveaux outils rapidement — et moi j'ai récupéré du temps pour me concentrer sur le développement.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" id="t2-initial">T</div>
+        <div>
+          <div class="testimonial-name" id="t2-name">Témoignage à venir</div>
+          <div class="testimonial-role" id="t2-role">Dirigeant, secteur à préciser</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text" id="t3-text">Ce qui m'a convaincu, c'est que Laetitia ne fait pas à notre place. Elle construit avec nous, et on repart autonomes. C'est rare et précieux.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" id="t3-initial">T</div>
+        <div>
+          <div class="testimonial-name" id="t3-name">Témoignage à venir</div>
+          <div class="testimonial-role" id="t3-role">Dirigeant, secteur à préciser</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq" id="faq">
+  <div class="section-tag">Questions fréquentes</div>
+  <h2 class="section-title" style="text-align:center;">On répond à vos <em>questions</em></h2>
+
+  <div class="faq-grid" id="faqGrid">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        À qui s'adresse AEQUIO exactement ?
+        <div class="faq-arrow"><svg width="10" height="6" fill="none" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="faq-answer">AEQUIO s'adresse aux dirigeants de TPE et PME — typiquement entre 5 et 50 collaborateurs, avec un CA supérieur à 500K€ — qui veulent structurer leur croissance, gagner en visibilité financière ou faire évoluer leur organisation. Si vous portez seul des sujets qui devraient être portés à plusieurs, on a probablement quelque chose à construire ensemble.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        En quoi AEQUIO est différent d'un cabinet comptable ?
+        <div class="faq-arrow"><svg width="10" height="6" fill="none" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="faq-answer">Votre comptable travaille sur le passé — il certifie et déclare. AEQUIO travaille sur le présent et l'avenir — pilotage en temps réel, aide à la décision, transformation opérationnelle. Ce sont deux rôles complémentaires. Chez AEQUIO, vous avez un regard terrain.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Nous utilisons déjà des outils comme Slack, Notion… on repart de zéro ?
+        <div class="faq-arrow"><svg width="10" height="6" fill="none" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="faq-answer">Non. On conserve vos outils existants si possible — le but est d'optimiser ce qui est déjà en place, pas de tout reconstruire. On ne repart jamais de zéro sauf si c'est vraiment nécessaire. L'objectif, c'est de connecter et automatiser ce que vous avez déjà pour le rendre plus efficace.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Je viens de recruter quelqu'un. Comment AEQUIO peut m'aider à l'intégrer ?
+        <div class="faq-arrow"><svg width="10" height="6" fill="none" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="faq-answer">Les livrables et process documentés que nous construisons ensemble sont précisément faits pour ça. Un nouvel arrivant dispose d'un accès clair à toutes les procédures de son périmètre, en autonomie, dès le premier jour. Moins de temps perdu à former, plus de temps à produire.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Que se passe-t-il si quelque chose dysfonctionne après la mise en place ?
+        <div class="faq-arrow"><svg width="10" height="6" fill="none" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="faq-answer">Chaque mission de digitalisation et d'optimisation des process inclut 1 mois de support après le déploiement. Si quelque chose ne fonctionne pas comme prévu, je suis là pour corriger. L'objectif est que vous repartiez avec quelque chose qui marche vraiment — pas une solution livrée et abandonnée.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Comment se déroule le premier échange ?
+        <div class="faq-arrow"><svg width="10" height="6" fill="none" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </button>
+      <div class="faq-answer">Un appel ou visio de 30 minutes, offert et sans engagement. On parle de vous, de votre entreprise, de vos enjeux du moment. Je vous pose quelques questions pour comprendre votre situation. À l'issue, vous savez si une collaboration peut avoir du sens — et dans quelle direction.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FORMULAIRE DE CONTACT
+     ============================================================ -->
+<section class="contact" id="contact">
+  <div class="section-tag">Prenons contact</div>
+  <h2 class="section-title">30 minutes offertes pour <em>tout changer</em></h2>
+
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p>Un premier échange suffit souvent à clarifier les enjeux et à identifier les premières pistes. C'est offert, sans engagement, et ça ne prend que 30 minutes.</p>
+      <div class="contact-info-items">
+        <div class="contact-info-item">
+          <div class="contact-info-icon">📍</div>
+          La Rochelle & environs (déplacements possibles)
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">✉️</div>
+          <a href="mailto:laetitia@aequio.fr">laetitia@aequio.fr</a>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon">🔗</div>
+          <a href="#" target="_blank" rel="noopener">LinkedIn — à venir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div id="formContent">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Nom de l'entreprise <span class="required">*</span></label>
+            <input type="text" class="form-input" id="f-company" placeholder="Ma Société SAS" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom & Prénom <span class="required">*</span></label>
+            <input type="text" class="form-input" id="f-name" placeholder="Marie Dupont" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Téléphone <span class="required">*</span></label>
+            <input type="tel" class="form-input" id="f-tel" placeholder="06 XX XX XX XX" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email <span class="required">*</span></label>
+            <input type="email" class="form-input" id="f-email" placeholder="marie@masociete.fr" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Chiffre d'affaires</label>
+            <select class="form-select" id="f-ca">
+              <option value="">Sélectionner</option>
+              <option>Moins de 500K€</option>
+              <option>500K€ – 1M€</option>
+              <option>1M€ – 5M€</option>
+              <option>5M€ – 15M€</option>
+              <option>Plus de 15M€</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nombre de collaborateurs</label>
+            <select class="form-select" id="f-collab">
+              <option value="">Sélectionner</option>
+              <option>Moins de 5</option>
+              <option>5 – 15</option>
+              <option>15 – 30</option>
+              <option>30 – 50</option>
+              <option>Plus de 50</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">L'offre qui m'intéresse</label>
+          <select class="form-select" id="f-offre">
+            <option value="">Pas encore décidé(e)</option>
+            <option>Diagnostic Flash</option>
+            <option>Process & Digitalisation</option>
+            <option>DAF à Temps Partagé</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Vous souhaitez m'en dire plus ?</label>
+          <textarea class="form-textarea" id="f-message" placeholder="Partagez-moi votre contexte, vos enjeux du moment, ce qui vous a amené ici..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">
+          Envoyer ma demande
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <p style="font-size:12px; color:var(--text-light); text-align:center; margin-top:12px;">Vos données sont traitées conformément à notre politique de confidentialité. Aucune utilisation commerciale.</p>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✉️</div>
+        <h3>Message envoyé !</h3>
+        <p>Merci pour votre message. Je reviens vers vous dans les 48h ouvrés pour convenir d'un premier échange.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <span class="nav-logo-text">AEQUIO</span>
+        <div class="nav-logo-line"></div>
+        <div class="nav-logo-dot" style="background:var(--peach-light)"></div>
+      </div>
+      <p class="footer-tagline">Conseil stratégique & financier pour les dirigeants de TPE/PME — La Rochelle & environs.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="#approach">Notre démarche</a></li>
+        <li><a href="#method">Comment ça marche</a></li>
+        <li><a href="#experience">L'expérience AEQUIO</a></li>
+        <li><a href="#offers">Nos offres</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Prendre contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informations</h4>
+      <ul class="footer-links">
+        <li><a href="#" onclick="openModal('modalLegal'); return false;">Mentions légales</a></li>
+        <li><a href="#" onclick="openModal('modalPrivacy'); return false;">Politique de confidentialité</a></li>
+        <li><a href="mailto:laetitia@aequio.fr">laetitia@aequio.fr</a></li>
+        <li>La Rochelle, 17000</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AEQUIO — Laetitia Giraud. Tous droits réservés.</span>
+    <div class="footer-legal-links">
+      <a href="#" onclick="openModal('modalLegal'); return false;">Mentions légales</a>
+      <a href="#" onclick="openModal('modalPrivacy'); return false;">Confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     MODAL MENTIONS LÉGALES
+     ============================================================ -->
+<div class="modal-overlay" id="modalLegal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modalLegal')">✕</button>
+    <h2>Mentions légales</h2>
+
+    <h3>Éditeur du site</h3>
+    <p>
+      <strong>Dénomination :</strong> AEQUIO<br>
+      <strong>Entrepreneur individuel :</strong> Laetitia Giraud<br>
+      <strong>Statut :</strong> Micro-entreprise — Profession Libérale Non Réglementée (BNC)<br>
+      <strong>SIRET :</strong> En cours d'immatriculation<br>
+      <strong>Adresse :</strong> La Rochelle (17000), France<br>
+      <strong>Email :</strong> <a href="mailto:laetitia@aequio.fr">laetitia@aequio.fr</a><br>
+      <strong>Site web :</strong> aequio.fr
+    </p>
+
+    <h3>Hébergeur</h3>
+    <p>
+      Gandi SAS<br>
+      63-65 boulevard Massena, 75013 Paris<br>
+      <a href="https://www.gandi.net" target="_blank" rel="noopener">www.gandi.net</a>
+    </p>
+
+    <h3>Propriété intellectuelle</h3>
+    <p>L'ensemble du contenu de ce site (textes, images, logo, structure) est la propriété exclusive de Laetitia Giraud — AEQUIO. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation préalable écrite est interdite.</p>
+
+    <h3>Responsabilité</h3>
+    <p>Les informations présentées sur ce site sont fournies à titre indicatif et ne constituent pas un conseil juridique, fiscal ou financier. AEQUIO ne saurait être tenu responsable des décisions prises sur la base de ces informations.</p>
+
+    <h3>Données personnelles</h3>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données personnelles. Pour exercer ces droits : <a href="mailto:laetitia@aequio.fr">laetitia@aequio.fr</a></p>
+
+    <h3>Cookies</h3>
+    <p>Ce site n'utilise pas de cookies de traçage ou publicitaires. Aucune donnée n'est transmise à des tiers à des fins commerciales.</p>
+
+    <h3>Droit applicable</h3>
+    <p>Le présent site et ses mentions légales sont soumis au droit français. Tout litige relève de la compétence exclusive des tribunaux français.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     MODAL POLITIQUE DE CONFIDENTIALITÉ
+     ============================================================ -->
+<div class="modal-overlay" id="modalPrivacy">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modalPrivacy')">✕</button>
+    <h2>Politique de confidentialité</h2>
+
+    <h3>Responsable du traitement</h3>
+    <p>Laetitia Giraud — AEQUIO · laetitia@aequio.fr</p>
+
+    <h3>Données collectées</h3>
+    <p>Via le formulaire de contact, les données suivantes peuvent être collectées :</p>
+    <ul>
+      <li>Nom, prénom</li>
+      <li>Nom de l'entreprise</li>
+      <li>Adresse email</li>
+      <li>Numéro de téléphone</li>
+      <li>Informations sur l'entreprise (CA, effectif)</li>
+      <li>Message libre</li>
+    </ul>
+
+    <h3>Finalité et base légale</h3>
+    <p>Ces données sont collectées pour répondre à vos demandes de contact et proposer un accompagnement adapté. Base légale : intérêt légitime (prise de contact commerciale à votre initiative) — Art. 6.1.f du RGPD.</p>
+
+    <h3>Durée de conservation</h3>
+    <p>Vos données sont conservées 3 ans à compter du dernier contact, sauf opposition de votre part.</p>
+
+    <h3>Vos droits</h3>
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et de portabilité. Pour exercer ces droits ou pour toute question : <a href="mailto:laetitia@aequio.fr">laetitia@aequio.fr</a></p>
+    <p>Vous pouvez également introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></p>
+
+    <h3>Transmission à des tiers</h3>
+    <p>Aucune donnée personnelle n'est vendue, louée ou transmise à des tiers à des fins commerciales.</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     BACK-OFFICE BUTTON
+     ============================================================ -->
+<button class="bo-btn" onclick="openBO()" title="Administration">⚙</button>
+
+<!-- ============================================================
+     BACK-OFFICE PANEL
+     ============================================================ -->
+<div class="bo-panel" id="boPanel">
+  <div class="bo-overlay" onclick="closeBO()"></div>
+  <div class="bo-sidebar">
+    <div class="bo-header">
+      <h3>Administration</h3>
+      <button class="bo-close" onclick="closeBO()">✕</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="boLogin" class="bo-login">
+      <p>Accès réservé. Entrez votre mot de passe pour modifier le contenu du site.</p>
+      <input type="password" class="bo-input" id="boPassword" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')boAuth()">
+      <button class="bo-submit" onclick="boAuth()">Se connecter</button>
+      <span class="bo-error" id="boError">Mot de passe incorrect.</span>
+    </div>
+
+    <!-- CONTENT -->
+    <div id="boContent" class="bo-content">
+
+      <div class="bo-section-title">🏷️ Informations générales</div>
+      <div class="bo-field">
+        <label>Titre de la page (SEO)</label>
+        <input type="text" id="bo-title" value="AEQUIO — Conseil Stratégique & Financier · La Rochelle">
+      </div>
+      <div class="bo-field">
+        <label>Email de contact affiché</label>
+        <input type="text" id="bo-email" value="laetitia@aequio.fr">
+      </div>
+      <div class="bo-field">
+        <label>Lien LinkedIn</label>
+        <input type="text" id="bo-linkedin" value="#" placeholder="https://linkedin.com/in/votre-profil">
+      </div>
+
+      <div class="bo-section-title">⭐ Témoignages</div>
+      <div class="bo-testimonials">
+        <div class="bo-testimonial-item">
+          <strong style="font-size:12px; color:var(--text-light)">Témoignage 1</strong>
+          <div class="bo-field"><label>Texte</label><textarea id="bo-t1-text" rows="3">Laetitia a transformé notre façon de piloter l'entreprise. Pour la première fois, j'ai de la visibilité réelle sur mes marges — et ça change tout dans mes décisions au quotidien.</textarea></div>
+          <div class="bo-field"><label>Nom</label><input type="text" id="bo-t1-name" value="Témoignage à venir"></div>
+          <div class="bo-field"><label>Rôle / Entreprise</label><input type="text" id="bo-t1-role" value="Dirigeant, secteur à préciser"></div>
+          <div class="bo-field"><label>Initiale (lettre)</label><input type="text" id="bo-t1-initial" value="T" maxlength="1"></div>
+        </div>
+        <div class="bo-testimonial-item">
+          <strong style="font-size:12px; color:var(--text-light)">Témoignage 2</strong>
+          <div class="bo-field"><label>Texte</label><textarea id="bo-t2-text" rows="3">En 3 mois, nos process ont été entièrement restructurés. L'équipe s'est approprié les nouveaux outils rapidement.</textarea></div>
+          <div class="bo-field"><label>Nom</label><input type="text" id="bo-t2-name" value="Témoignage à venir"></div>
+          <div class="bo-field"><label>Rôle / Entreprise</label><input type="text" id="bo-t2-role" value="Dirigeant, secteur à préciser"></div>
+          <div class="bo-field"><label>Initiale</label><input type="text" id="bo-t2-initial" value="T" maxlength="1"></div>
+        </div>
+        <div class="bo-testimonial-item">
+          <strong style="font-size:12px; color:var(--text-light)">Témoignage 3</strong>
+          <div class="bo-field"><label>Texte</label><textarea id="bo-t3-text" rows="3">Ce qui m'a convaincu, c'est que Laetitia ne fait pas à notre place. Elle construit avec nous, et on repart autonomes.</textarea></div>
+          <div class="bo-field"><label>Nom</label><input type="text" id="bo-t3-name" value="Témoignage à venir"></div>
+          <div class="bo-field"><label>Rôle / Entreprise</label><input type="text" id="bo-t3-role" value="Dirigeant, secteur à préciser"></div>
+          <div class="bo-field"><label>Initiale</label><input type="text" id="bo-t3-initial" value="T" maxlength="1"></div>
+        </div>
+      </div>
+
+      <div class="bo-section-title">🔑 Sécurité</div>
+      <div class="bo-field">
+        <label>Changer le mot de passe</label>
+        <input type="password" id="bo-new-password" placeholder="Nouveau mot de passe">
+      </div>
+
+      <button class="bo-save-btn" onclick="boSave()">✓ Enregistrer les modifications</button>
+      <div class="bo-saved-msg" id="boSavedMsg">✓ Modifications enregistrées !</div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ---- NAV SCROLL ---- */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ---- FAQ ---- */
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-question').forEach(b => b.classList.remove('active'));
+  if (!isOpen) {
+    answer.classList.add('open');
+    btn.classList.add('active');
+  }
+}
+
+/* ---- MODALS ---- */
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => { if(e.target === m) closeModal(m.id); });
+});
+
+/* ---- FORM ---- */
+function submitForm() {
+  const required = ['f-company','f-name','f-tel','f-email'];
+  let valid = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.style.borderColor = 'var(--peach-main)'; valid = false; }
+    else { el.style.borderColor = 'transparent'; }
+  });
+  if (!valid) return;
+
+  // En production : envoyer vers un endpoint (Formspree, Netlify Forms, etc.)
+  // Pour l'instant : simuler le succès
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+/* ---- BACK-OFFICE ---- */
+const BO_PASSWORD_KEY = 'aequio_bo_pwd';
+let currentPassword = localStorage.getItem(BO_PASSWORD_KEY) || 'aequio2026';
+
+function openBO() {
+  document.getElementById('boPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBO() {
+  document.getElementById('boPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function boAuth() {
+  const pwd = document.getElementById('boPassword').value;
+  if (pwd === currentPassword) {
+    document.getElementById('boLogin').style.display = 'none';
+    document.getElementById('boContent').classList.add('visible');
+    loadBoData();
+  } else {
+    document.getElementById('boError').style.display = 'block';
+  }
+}
+
+function loadBoData() {
+  const data = JSON.parse(localStorage.getItem('aequio_bo_data') || '{}');
+  if (data.title) document.getElementById('bo-title').value = data.title;
+  if (data.email) document.getElementById('bo-email').value = data.email;
+  if (data.linkedin) document.getElementById('bo-linkedin').value = data.linkedin;
+  ['1','2','3'].forEach(n => {
+    if (data['t'+n+'text']) document.getElementById('bo-t'+n+'-text').value = data['t'+n+'text'];
+    if (data['t'+n+'name']) document.getElementById('bo-t'+n+'-name').value = data['t'+n+'name'];
+    if (data['t'+n+'role']) document.getElementById('bo-t'+n+'-role').value = data['t'+n+'role'];
+    if (data['t'+n+'initial']) document.getElementById('bo-t'+n+'-initial').value = data['t'+n+'initial'];
+  });
+}
+
+function boSave() {
+  const data = {
+    title: document.getElementById('bo-title').value,
+    email: document.getElementById('bo-email').value,
+    linkedin: document.getElementById('bo-linkedin').value,
+  };
+  ['1','2','3'].forEach(n => {
+    data['t'+n+'text'] = document.getElementById('bo-t'+n+'-text').value;
+    data['t'+n+'name'] = document.getElementById('bo-t'+n+'-name').value;
+    data['t'+n+'role'] = document.getElementById('bo-t'+n+'-role').value;
+    data['t'+n+'initial'] = document.getElementById('bo-t'+n+'-initial').value;
+  });
+  localStorage.setItem('aequio_bo_data', JSON.stringify(data));
+
+  // Nouveau mot de passe
+  const newPwd = document.getElementById('bo-new-password').value;
+  if (newPwd.trim()) {
+    currentPassword = newPwd;
+    localStorage.setItem(BO_PASSWORD_KEY, newPwd);
+    document.getElementById('bo-new-password').value = '';
+  }
+
+  // Appliquer les modifications sur la page
+  applyBoData(data);
+
+  const msg = document.getElementById('boSavedMsg');
+  msg.style.display = 'block';
+  setTimeout(() => msg.style.display = 'none', 3000);
+}
+
+function applyBoData(data) {
+  document.title = data.title || document.title;
+
+  // Témoignages
+  ['1','2','3'].forEach(n => {
+    const txt = document.getElementById('t'+n+'-text');
+    const name = document.getElementById('t'+n+'-name');
+    const role = document.getElementById('t'+n+'-role');
+    const init = document.getElementById('t'+n+'-initial');
+    if(txt) txt.textContent = data['t'+n+'text'] || txt.textContent;
+    if(name) name.textContent = data['t'+n+'name'] || name.textContent;
+    if(role) role.textContent = data['t'+n+'role'] || role.textContent;
+    if(init) init.textContent = data['t'+n+'initial'] || init.textContent;
+  });
+
+  // LinkedIn
+  if (data.linkedin && data.linkedin !== '#') {
+    document.querySelectorAll('.footer-social a').forEach(a => a.href = data.linkedin);
+  }
+}
+
+// Appliquer au chargement
+window.addEventListener('DOMContentLoaded', () => {
+  const data = JSON.parse(localStorage.getItem('aequio_bo_data') || '{}');
+  if (Object.keys(data).length) applyBoData(data);
+});
+
+/* ---- ANIMATIONS AU SCROLL ---- */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.method-card, .offer-card, .exp-step, .pain-item, .faq-item, .testimonial-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
