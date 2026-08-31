@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AEQUIO — Conseil Stratégique & Financier · La Rochelle</title>
 <meta name="description" content="AEQUIO accompagne les dirigeants de TPE/PME à La Rochelle et ses environs. Sparring partner stratégique, DAF à temps partagé, optimisation des process et digitalisation.">
+<link rel="canonical" href="https://aequio.fr">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -1305,205 +1306,6 @@ footer {
 .modal-box ul { padding-left: 20px; }
 
 /* ============================================================
-   BACK-OFFICE PANEL
-   ============================================================ */
-.bo-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 200;
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  background: var(--text);
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  box-shadow: var(--shadow);
-  opacity: 0.4;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.bo-btn:hover { opacity: 1; transform: scale(1.05); }
-
-.bo-panel {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  align-items: stretch;
-}
-.bo-panel.open { display: flex; }
-.bo-overlay {
-  flex: 1;
-  background: rgba(42,37,53,0.5);
-  backdrop-filter: blur(4px);
-  cursor: pointer;
-}
-.bo-sidebar {
-  width: 440px;
-  background: white;
-  overflow-y: auto;
-  box-shadow: -20px 0 60px rgba(42,37,53,0.15);
-  display: flex;
-  flex-direction: column;
-}
-.bo-header {
-  padding: 28px 32px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 1;
-}
-.bo-header h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 300;
-  color: var(--text);
-}
-.bo-close {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--text-light);
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
-}
-.bo-close:hover { background: var(--bg); }
-
-.bo-login {
-  padding: 40px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.bo-login p {
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--text-light);
-}
-.bo-input {
-  width: 100%;
-  padding: 12px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  color: var(--text);
-  outline: none;
-  background: var(--bg);
-  transition: all 0.2s;
-}
-.bo-input:focus { border-color: var(--peach-light); background: white; box-shadow: 0 0 0 3px rgba(196,112,106,0.08); }
-.bo-submit {
-  padding: 12px;
-  background: var(--peach-main);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.bo-submit:hover { background: var(--peach-deep); }
-.bo-error {
-  font-size: 13px;
-  color: var(--peach-deep);
-  display: none;
-}
-
-.bo-content {
-  display: none;
-  padding: 24px 32px;
-  flex-direction: column;
-  gap: 24px;
-}
-.bo-content.visible { display: flex; }
-
-.bo-section-title {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--text-light);
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-.bo-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.bo-field label {
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--text-light);
-}
-.bo-field input,
-.bo-field textarea {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-family: 'Outfit', sans-serif;
-  font-size: 13px;
-  color: var(--text);
-  background: var(--bg);
-  outline: none;
-  transition: all 0.2s;
-  resize: vertical;
-}
-.bo-field input:focus, .bo-field textarea:focus {
-  border-color: var(--peach-light);
-  background: white;
-}
-
-.bo-save-btn {
-  padding: 12px;
-  background: var(--blue-main);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 13px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.bo-save-btn:hover { background: var(--blue-dark); }
-.bo-saved-msg {
-  display: none;
-  font-size: 13px;
-  color: var(--blue-main);
-  text-align: center;
-}
-
-/* Testimonial editor */
-.bo-testimonials {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.bo-testimonial-item {
-  background: var(--bg);
-  border-radius: var(--radius-sm);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* ============================================================
    ANIMATIONS
    ============================================================ */
 @keyframes fadeUp {
@@ -1540,10 +1342,14 @@ footer {
   .nav-links { display: none; }
   section { padding: 64px 20px; }
   .hero { grid-template-columns: 1fr; padding: 100px 20px 64px; }
-  .hero-visual { display: none; }
+  .hero-visual { margin-top: 44px; }
+  .hero-img-badge { left: 12px; bottom: -16px; padding: 14px 18px; }
+  .hero-img-float { width: 92px; height: 92px; top: auto; bottom: -16px; right: 12px; }
   .promise { grid-template-columns: 1fr; }
   .approach-inner { grid-template-columns: 1fr; }
-  .approach-visual { display: none; }
+  .approach-visual { margin-bottom: 28px; }
+  .approach-stat { right: 12px; bottom: -16px; padding: 14px 18px; }
+  .approach-stat-num { font-size: 30px; }
   .method-grid { grid-template-columns: 1fr; }
   .experience-steps { grid-template-columns: 1fr; }
   .faq-grid { grid-template-columns: 1fr; }
@@ -1793,6 +1599,7 @@ footer {
           <div class="offer-item">Analyse de votre situation financière & trésorerie</div>
           <div class="offer-item">Revue de vos process & organisation interne</div>
           <div class="offer-item">Identification des risques et opportunités</div>
+          <div class="offer-item">Débusquez vos frais cachés et leviers d'économie</div>
           <div class="offer-item">Synthèse écrite avec plan d'action priorisé</div>
           <div class="offer-item">Session de restitution & échanges</div>
         </div>
@@ -1813,7 +1620,8 @@ footer {
         <div class="offer-items">
           <div class="offer-item">Cartographie & optimisation des process internes</div>
           <div class="offer-item">Automatisations No-code </div>
-          <div class="offer-item">Tableaux de bord financiers & de trésorerie en temps réel</div>
+          <div class="offer-item">Automatisation des relances clients & workflow de validation fournisseurs</div>
+          <div class="offer-item">Facturation rapide & tableaux de bord financiers en temps réel</div>
           <div class="offer-item">Livrables documentés, lisibles par tous — y compris les nouveaux arrivants</div>
           <div class="offer-item">1 mois de support post-déploiement inclus</div>
         </div>
@@ -1832,8 +1640,10 @@ footer {
       <div class="offer-body">
         <p class="offer-desc">L'expertise d'un Directeur Administratif et Financier de terrain, sans le coût d'un temps plein. Je deviens votre bras droit financier pour piloter, décider et sécuriser.</p>
         <div class="offer-items">
+          <div class="offer-item">Sécurisation de la trésorerie & recherche d'aides financières / prêts</div>
           <div class="offer-item">Pilotage mensuel de la performance & trésorerie</div>
           <div class="offer-item">Analyse des marges, coûts & rentabilité</div>
+          <div class="offer-item">Suivi des bons KPIs pour décider vite</div>
           <div class="offer-item">Aide à la décision & scenarios financiers</div>
           <div class="offer-item">Interface avec votre comptable & banque</div>
           <div class="offer-item">Présence régulière en entreprise</div>
@@ -1967,7 +1777,7 @@ footer {
         </div>
         <div class="contact-info-item">
           <div class="contact-info-icon">🔗</div>
-          <a href="#" target="_blank" rel="noopener">LinkedIn — à venir</a>
+          <a href="https://www.linkedin.com/in/aequio-laetitiagiraud" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -2059,7 +1869,7 @@ footer {
       </div>
       <p class="footer-tagline">Conseil stratégique & financier pour les dirigeants de TPE/PME — La Rochelle & environs.</p>
       <div class="footer-social">
-        <a href="#" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/in/aequio-laetitiagiraud" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener">
           <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/></svg>
         </a>
       </div>
@@ -2107,10 +1917,10 @@ footer {
       <strong>Dénomination :</strong> AEQUIO<br>
       <strong>Entrepreneur individuel :</strong> Laetitia Giraud<br>
       <strong>Statut :</strong> Micro-entreprise — Profession Libérale Non Réglementée (BNC)<br>
-      <strong>SIRET :</strong> En cours d'immatriculation<br>
+      <strong>SIRET :</strong> 518 356 936 00030<br>
       <strong>Adresse :</strong> La Rochelle (17000), France<br>
       <strong>Email :</strong> <a href="mailto:laetitia@aequio.fr">laetitia@aequio.fr</a><br>
-      <strong>Site web :</strong> aequio.fr
+      <strong>Site web :</strong> <a href="https://aequio.fr" target="_blank" rel="noopener">aequio.fr</a>
     </p>
 
     <h3>Hébergeur</h3>
@@ -2171,85 +1981,6 @@ footer {
 
     <h3>Transmission à des tiers</h3>
     <p>Aucune donnée personnelle n'est vendue, louée ou transmise à des tiers à des fins commerciales.</p>
-  </div>
-</div>
-
-<!-- ============================================================
-     BACK-OFFICE BUTTON
-     ============================================================ -->
-<button class="bo-btn" onclick="openBO()" title="Administration">⚙</button>
-
-<!-- ============================================================
-     BACK-OFFICE PANEL
-     ============================================================ -->
-<div class="bo-panel" id="boPanel">
-  <div class="bo-overlay" onclick="closeBO()"></div>
-  <div class="bo-sidebar">
-    <div class="bo-header">
-      <h3>Administration</h3>
-      <button class="bo-close" onclick="closeBO()">✕</button>
-    </div>
-
-    <!-- LOGIN -->
-    <div id="boLogin" class="bo-login">
-      <p>Accès réservé. Entrez votre mot de passe pour modifier le contenu du site.</p>
-      <input type="password" class="bo-input" id="boPassword" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')boAuth()">
-      <button class="bo-submit" onclick="boAuth()">Se connecter</button>
-      <span class="bo-error" id="boError">Mot de passe incorrect.</span>
-    </div>
-
-    <!-- CONTENT -->
-    <div id="boContent" class="bo-content">
-
-      <div class="bo-section-title">🏷️ Informations générales</div>
-      <div class="bo-field">
-        <label>Titre de la page (SEO)</label>
-        <input type="text" id="bo-title" value="AEQUIO — Conseil Stratégique & Financier · La Rochelle">
-      </div>
-      <div class="bo-field">
-        <label>Email de contact affiché</label>
-        <input type="text" id="bo-email" value="laetitia@aequio.fr">
-      </div>
-      <div class="bo-field">
-        <label>Lien LinkedIn</label>
-        <input type="text" id="bo-linkedin" value="#" placeholder="https://linkedin.com/in/votre-profil">
-      </div>
-
-      <div class="bo-section-title">⭐ Témoignages</div>
-      <div class="bo-testimonials">
-        <div class="bo-testimonial-item">
-          <strong style="font-size:12px; color:var(--text-light)">Témoignage 1</strong>
-          <div class="bo-field"><label>Texte</label><textarea id="bo-t1-text" rows="3">Laetitia a transformé notre façon de piloter l'entreprise. Pour la première fois, j'ai de la visibilité réelle sur mes marges — et ça change tout dans mes décisions au quotidien.</textarea></div>
-          <div class="bo-field"><label>Nom</label><input type="text" id="bo-t1-name" value="Témoignage à venir"></div>
-          <div class="bo-field"><label>Rôle / Entreprise</label><input type="text" id="bo-t1-role" value="Dirigeant, secteur à préciser"></div>
-          <div class="bo-field"><label>Initiale (lettre)</label><input type="text" id="bo-t1-initial" value="T" maxlength="1"></div>
-        </div>
-        <div class="bo-testimonial-item">
-          <strong style="font-size:12px; color:var(--text-light)">Témoignage 2</strong>
-          <div class="bo-field"><label>Texte</label><textarea id="bo-t2-text" rows="3">En 3 mois, nos process ont été entièrement restructurés. L'équipe s'est approprié les nouveaux outils rapidement.</textarea></div>
-          <div class="bo-field"><label>Nom</label><input type="text" id="bo-t2-name" value="Témoignage à venir"></div>
-          <div class="bo-field"><label>Rôle / Entreprise</label><input type="text" id="bo-t2-role" value="Dirigeant, secteur à préciser"></div>
-          <div class="bo-field"><label>Initiale</label><input type="text" id="bo-t2-initial" value="T" maxlength="1"></div>
-        </div>
-        <div class="bo-testimonial-item">
-          <strong style="font-size:12px; color:var(--text-light)">Témoignage 3</strong>
-          <div class="bo-field"><label>Texte</label><textarea id="bo-t3-text" rows="3">Ce qui m'a convaincu, c'est que Laetitia ne fait pas à notre place. Elle construit avec nous, et on repart autonomes.</textarea></div>
-          <div class="bo-field"><label>Nom</label><input type="text" id="bo-t3-name" value="Témoignage à venir"></div>
-          <div class="bo-field"><label>Rôle / Entreprise</label><input type="text" id="bo-t3-role" value="Dirigeant, secteur à préciser"></div>
-          <div class="bo-field"><label>Initiale</label><input type="text" id="bo-t3-initial" value="T" maxlength="1"></div>
-        </div>
-      </div>
-
-      <div class="bo-section-title">🔑 Sécurité</div>
-      <div class="bo-field">
-        <label>Changer le mot de passe</label>
-        <input type="password" id="bo-new-password" placeholder="Nouveau mot de passe">
-      </div>
-
-      <button class="bo-save-btn" onclick="boSave()">✓ Enregistrer les modifications</button>
-      <div class="bo-saved-msg" id="boSavedMsg">✓ Modifications enregistrées !</div>
-
-    </div>
   </div>
 </div>
 
@@ -2322,100 +2053,6 @@ async function submitForm() {
     alert('Une erreur est survenue. Merci de réessayer ou de me contacter directement par email.');
   }
 }
-
-/* ---- BACK-OFFICE ---- */
-const BO_PASSWORD_KEY = 'aequio_bo_pwd';
-let currentPassword = localStorage.getItem(BO_PASSWORD_KEY) || 'aequio2026';
-
-function openBO() {
-  document.getElementById('boPanel').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeBO() {
-  document.getElementById('boPanel').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function boAuth() {
-  const pwd = document.getElementById('boPassword').value;
-  if (pwd === currentPassword) {
-    document.getElementById('boLogin').style.display = 'none';
-    document.getElementById('boContent').classList.add('visible');
-    loadBoData();
-  } else {
-    document.getElementById('boError').style.display = 'block';
-  }
-}
-
-function loadBoData() {
-  const data = JSON.parse(localStorage.getItem('aequio_bo_data') || '{}');
-  if (data.title) document.getElementById('bo-title').value = data.title;
-  if (data.email) document.getElementById('bo-email').value = data.email;
-  if (data.linkedin) document.getElementById('bo-linkedin').value = data.linkedin;
-  ['1','2','3'].forEach(n => {
-    if (data['t'+n+'text']) document.getElementById('bo-t'+n+'-text').value = data['t'+n+'text'];
-    if (data['t'+n+'name']) document.getElementById('bo-t'+n+'-name').value = data['t'+n+'name'];
-    if (data['t'+n+'role']) document.getElementById('bo-t'+n+'-role').value = data['t'+n+'role'];
-    if (data['t'+n+'initial']) document.getElementById('bo-t'+n+'-initial').value = data['t'+n+'initial'];
-  });
-}
-
-function boSave() {
-  const data = {
-    title: document.getElementById('bo-title').value,
-    email: document.getElementById('bo-email').value,
-    linkedin: document.getElementById('bo-linkedin').value,
-  };
-  ['1','2','3'].forEach(n => {
-    data['t'+n+'text'] = document.getElementById('bo-t'+n+'-text').value;
-    data['t'+n+'name'] = document.getElementById('bo-t'+n+'-name').value;
-    data['t'+n+'role'] = document.getElementById('bo-t'+n+'-role').value;
-    data['t'+n+'initial'] = document.getElementById('bo-t'+n+'-initial').value;
-  });
-  localStorage.setItem('aequio_bo_data', JSON.stringify(data));
-
-  // Nouveau mot de passe
-  const newPwd = document.getElementById('bo-new-password').value;
-  if (newPwd.trim()) {
-    currentPassword = newPwd;
-    localStorage.setItem(BO_PASSWORD_KEY, newPwd);
-    document.getElementById('bo-new-password').value = '';
-  }
-
-  // Appliquer les modifications sur la page
-  applyBoData(data);
-
-  const msg = document.getElementById('boSavedMsg');
-  msg.style.display = 'block';
-  setTimeout(() => msg.style.display = 'none', 3000);
-}
-
-function applyBoData(data) {
-  document.title = data.title || document.title;
-
-  // Témoignages
-  ['1','2','3'].forEach(n => {
-    const txt = document.getElementById('t'+n+'-text');
-    const name = document.getElementById('t'+n+'-name');
-    const role = document.getElementById('t'+n+'-role');
-    const init = document.getElementById('t'+n+'-initial');
-    if(txt) txt.textContent = data['t'+n+'text'] || txt.textContent;
-    if(name) name.textContent = data['t'+n+'name'] || name.textContent;
-    if(role) role.textContent = data['t'+n+'role'] || role.textContent;
-    if(init) init.textContent = data['t'+n+'initial'] || init.textContent;
-  });
-
-  // LinkedIn
-  if (data.linkedin && data.linkedin !== '#') {
-    document.querySelectorAll('.footer-social a').forEach(a => a.href = data.linkedin);
-  }
-}
-
-// Appliquer au chargement
-window.addEventListener('DOMContentLoaded', () => {
-  const data = JSON.parse(localStorage.getItem('aequio_bo_data') || '{}');
-  if (Object.keys(data).length) applyBoData(data);
-});
 
 /* ---- ANIMATIONS AU SCROLL ---- */
 const observer = new IntersectionObserver((entries) => {
